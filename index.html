@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>GVG 輔導與預約系統</title>
+  
+  <!-- 引入 PWA 描述檔 -->
+  <link rel="manifest" href="manifest.json">
+  <!-- 設定手機狀態列顏色 (奶茶色) -->
+  <meta name="theme-color" content="#b08968">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  
+  <style>
+    /* 讓 iframe 滿版且無邊框，達到全螢幕 App 效果 */
+    body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #f5ebe0; }
+    iframe { width: 100%; height: 100%; border: none; display: block; }
+  </style>
+</head>
+<body>
+  
+  <!-- 替換成你的 GAS Web App 網址 -->
+  <iframe src="https://script.google.com/macros/s/你的部署ID/exec" allow="fullscreen"></iframe>
+
+  <script>
+    // 註冊 Service Worker 觸發 PWA 安裝機制
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js');
+      });
+    }
+  </script>
+</body>
+</html>
